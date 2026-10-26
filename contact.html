@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Modus Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Base & Contact Section Styles */
+        body {
+            background-color: #35363a;
+            color: #ffffff;
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        .contact-hero-section {
+            padding: 120px 5% 80px;
+            background-color: #35363a;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        /* Left Column Content */
+        .contact-left-title {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
+
+        .contact-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-card p {
+            color: #cccccc;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .profile-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .profile-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-details h4 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .profile-details span {
+            font-size: 0.85rem;
+            color: #aaaaaa;
+        }
+
+        .contact-details-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .contact-detail-item span.label {
+            color: #888888;
+            min-width: 90px;
+        }
+
+        .contact-detail-item a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .contact-detail-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Right Column Form */
+        .contact-form-card {
+            background-color: #ffffff;
+            color: #333333;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #222222;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #cccccc;
+            padding: 10px 0;
+            font-size: 0.95rem;
+            outline: none;
+            background: transparent;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-bottom-color: #f48b53;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: #f48b53;
+            color: #ffffff;
+            border: none;
+            padding: 16px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: #e07a42;
+        }
+
+        .form-notice {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #777777;
+            margin-top: 15px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #ffffff;
+            color: #222222;
+            padding: 100px 5%;
+        }
+
+        .faq-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .faq-left h2 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0;
+            margin-bottom: 24px;
+        }
+
+        .faq-left p {
+            color: #666666;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .faq-accordion {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 24px 0;
+            cursor: pointer;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #666666;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, margin-top 0.3s ease;
+            color: #555555;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            margin-top: 15px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* Dropdown Overlay Matching Projecten Page */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 86vh;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 10%;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            text-align: left;
+        }
+
+        .menu-links a {
+            color: #ffffff;
+            font-size: 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .menu-links a:hover,
+        .menu-links a.active {
+            color: #ffffff;
+            text-decoration: underline;
+            text-underline-offset: 8px;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 992px) {
+
+            .contact-container,
+            .faq-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-left-title,
+            .faq-left h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header / Navbar -->
+    <nav class="navbar" id="navbar" style="z-index: 1001; position: relative;">
+        <div class="nav-left">
+            <a href="over-ons.html">Over ons</a>
+            <a href="projection.html">Projecten</a>
+        </div>
+        <div class="nav-center">
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <div class="logo">
+                    <span class="logo-icon">|||</span>MODUS
+                </div>
+            </a>
+        </div>
+        <div class="nav-right">
+            <a href="contact.html" class="btn-primary">Bespreek jouw project</a>
+            <button class="menu-btn" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Menu Overlay Dropdown -->
+    <div class="menu-overlay" id="menu-overlay">
+        <div class="menu-links">
+            <a href="index.html">Home</a>
+            <a href="projection.html">Projecten</a>
+            <a href="over-ons.html">Over ons</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+    </div>
+
+    <main>
+        <!-- 1. Contact Form & Info Section -->
+        <section class="contact-hero-section">
+            <div class="contact-container">
+
+                <!-- Left Side: Title & Info -->
+                <div class="contact-left">
+                    <h1 class="contact-left-title">In gesprek<br>over jouw<br>project</h1>
+
+                    <div class="contact-card">
+                        <p>Bezig met een vastgoedproject? We drinken graag een kop koffie met je om te kijken wat we
+                            voor je kunnen betekenen.</p>
+                        <div class="profile-info">
+                            <img src="assets/projection/03.avif" alt="Robert-Jan Smid">
+                            <div class="profile-details">
+                                <h4>Robert-Jan Smid</h4>
+                                <span>Founding Partner</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-details-list">
+                        <div class="contact-detail-item">
+                            <span class="label">Email —</span>
+                            <a href="mailto:info@modusprojects.nl">info@modusprojects.nl</a>
+                        </div>
+                        <div class="contact-detail-item">
+                            <span class="label">Telefoon —</span>
+                            <a href="tel:0702211691">070-2211691</a>
+                        </div>
+                        <div class="contact-detail-item">
+                            <span class="label">Volg ons —</span>
+                            <a href="#">LinkedIn</a>
+                        </div>
+                        <div class="contact-detail-item">
+                            <span class="label">Bezoek ons —</span>
+                            <div>
+                                Overgoo 13<br>
+                                2266JZ<br>
+                                Leidschendam Voorburg
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Contact Form -->
+                <div class="contact-form-card">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="naam">Naam</label>
+                            <input type="text" id="naam" name="naam" placeholder="Volledige naam" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bedrijf">Bedrijf</label>
+                            <input type="text" id="bedrijf" name="bedrijf" placeholder="Bedrijfsnaam">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="voorbeeld@mail.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefoon">Telefoon</label>
+                            <input type="tel" id="telefoon" name="telefoon" placeholder="+31 6 123 456 78">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bericht">Bericht</label>
+                            <textarea id="bericht" name="bericht" rows="3"
+                                placeholder="Waar kunnen we je mee helpen?"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Verstuur</button>
+                        <p class="form-notice">Wij nemen binnen 24 uur contact met je op</p>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 2. FAQ Accordion Section -->
+        <section class="faq-section">
+            <div class="faq-container">
+                <div class="faq-left">
+                    <h2>Handige<br>antwoorden op<br>logische vragen.</h2>
+                    <p>Heb je een vastgoedproject waarbij wij kunnen ondersteunen in de inbouw? Neem gerust contact op
+                        om de mogelijkheden te bespreken.</p>
+                </div>
+
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Hoe gaan jullie om met wijzigingen tijdens het project?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Wij werken met een flexibele planning en heldere communicatielijnen om eventuele wijzigingen
+                            tijdig en transparant door te voeren zonder dat het project vertraging oploopt.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Hoe borgen jullie leverzekerheid binnen een vastgoedproject?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Door ons uitgebreide netwerk van vaste leveranciers en eigen voorraadbeheer kunnen wij
+                            strakke leveringsafspraken en continuïteit garanderen.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Wat is jullie werkwijze bij grotere vastgoedprojecten?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            We wijzen per project een vast aanspreekpunt toe en werken met een helder stappenplan van
+                            voorbereiding en inkoop tot de uiteindelijke oplevering.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Kunnen jullie leveren binnen strakke projectdeadlines?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Ja, onze projectmatige aanpak en strakke regie zorgen ervoor dat we ook bij uitdagende
+                            tijdslijnen op tijd opleveren.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Hoe verloopt de samenwerking met onze onderaannemers?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Wij stemmen de planning en logistiek nauw af met alle betrokken partijen op de bouwplaats om
+                            een soepel verloop van de werkzaamheden te waarborgen.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-col footer-col-large">
+                <h3>Sanitair, tegels, keukens en vloeren voor<br>transformatie, renovatie en<br>nieuwbouwprojecten.</h3>
+                <p>Geef je project meer uitstraling, zonder dat het ten koste gaat van planning of budget.</p>
+                <a href="contact.html" class="btn-primary">Bespreek jouw project</a>
+            </div>
+            <div class="footer-col">
+                <h4>Menu</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="over-ons.html">Over ons</a></li>
+                    <li><a href="projection.html">Projecten</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:info@modusprojects.nl">info@modusprojects.nl</a></li>
+                    <li><a href="tel:0702211691">070-2211691</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li>KVK: 99523779</li>
+                    <li>BTW: NL869026203B01</li>
+                    <li class="address">Overgoo 13<br>2266JZ<br>Leidschendam Voorburg</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <h1 class="massive-text">MODUS</h1>
+        </div>
+    </footer>
+
+    <!-- Scripts for Overlay and Accordion functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Menu Toggle Script
+            const menuToggle = document.getElementById('menu-toggle');
+            const menuOverlay = document.getElementById('menu-overlay');
+
+            if (menuToggle && menuOverlay) {
+                menuToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    menuToggle.classList.toggle('active');
+                    menuOverlay.classList.toggle('active');
+                });
+
+                const links = menuOverlay.querySelectorAll('a');
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuToggle.classList.remove('active');
+                        menuOverlay.classList.remove('active');
+                    });
+                });
+            }
+
+            // Accordion Script
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    faqItems.forEach(i => i.classList.remove('active'));
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+<script src="scroll.js"></script>
+</body>
+
+</html>

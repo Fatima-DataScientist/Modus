@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Image Sequence</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-left">
+            <a href="#">Over ons</a>
+            <a href="projection.html">Projecten</a>
+        </div>
+        <div class="nav-center">
+            <div class="logo">
+                <span class="logo-icon">|||</span>MODUS
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="#" class="btn-primary">Bespreek jouw project</a>
+            <button class="menu-btn" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menu-overlay">
+        <div class="menu-links">
+            <a href="#">Home</a>
+            <a href="projection.html">Projecten</a>
+            <a href="over-ons.html">Over ons</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="hero-content" id="hero-content">
+        <h1>ANDERS DENKEN,<br>SLIMMER REALISEREN.</h1>
+        <p>Gespecialiseerd in het leveren van afbouwonderdelen voor<br>transformatie-, renovatie- en nieuwbouwprojecten.
+            Eén<br>aanspreekpunt, heldere afspraken.</p>
+        <div class="scroll-arrow">&darr;</div>
+    </div> <canvas id="sequence-canvas"></canvas>
+
+    <div class="spacer"></div>
+
+    <!-- White Info Section with Mouse Trail -->
+    <section class="info-section" id="info-section">
+        <div class="trail-container" id="trail-container"></div>
+        <div class="info-content">
+            <h2 class="info-title">ONDERSCHEIDENDE<br>AFBOUW VOOR JOUW<br>VASTGOEDPROJECT.</h2>
+            <p class="info-desc">Wij doorbreken de standaard in afbouw met een vernieuwd en<br>doordacht design. Als
+                verlengstuk van jouw projectteam denken we<br>mee en zorgen we voor transparante inkoop en processen
+                die<br>perfect aansluiten op jouw project. Van materiaalkeuze & design tot<br>inkoop, planning en
+                logistieke afhandeling.</p>
+        </div>
+    </section>
+
+    <!-- New Section 1: Waar we goed in zijn -->
+    <section class="section-dark services-section">
+        <div class="services-left">
+            <h2>WAAR WE GOED IN<br>ZIJN.</h2>
+            <p>Geef je project meer uitstraling zonder dat het ten<br>koste gaat van planning of budget.</p>
+        </div>
+        <div class="services-right">
+            <div class="service-item">
+                <img src="assets/home page/69a548db27ef20e6e3f5f2f4_AtlasConcorde_MarvelT_006_01_NavonaWhite_NavonaWhiteLine_LogIconOak.avif"
+                    alt="Sanitair">
+                <div class="service-info">
+                    <h3>SANITAIR</h3>
+                    <button class="plus-btn btn-orange">+</button>
+                </div>
+            </div>
+            <div class="service-item">
+                <img src="assets/home page/69c6966f2dafbf9dd9efcd56_Modus Projects Image 07.avif" alt="Tegels">
+                <div class="service-info">
+                    <h3>TEGELS</h3>
+                    <button class="plus-btn btn-dark">+</button>
+                </div>
+            </div>
+            <div class="service-item">
+                <img src="assets/home page/69c6966f34c63231710098dc_Modus Projects Image 03.avif" alt="Keukens">
+                <div class="service-info">
+                    <h3>KEUKENS</h3>
+                    <button class="plus-btn btn-dark">+</button>
+                </div>
+            </div>
+            <div class="service-item">
+                <img src="assets/home page/69c6966fdb8a281d401d95f3_Modus Projects Image 06.avif" alt="Vloeren">
+                <div class="service-info">
+                    <h3>VLOEREN</h3>
+                    <button class="plus-btn btn-dark">+</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Section 2: Drie M's -->
+    <section class="section-light standards-section">
+        <h2 class="centered-title">DRIE M'S.<br>ÉÉN STANDAARD.</h2>
+        <div class="cards-container">
+            <div class="card card-dark">
+                <h3>Meerwaarde</h3>
+                <p>Wij doorbreken de standaard in projectafbouw met doordachte afbouwconcepten. We ontwerpen oplossingen
+                    die aansluiten op jouw project, creatief samengesteld, maar altijd binnen budget. Dankzij directe
+                    producentenrelaties en projectmatige volume-inkoop realiseren we deze kwaliteit tegen scherpe en
+                    transparante prijzen. Daarbij verplaatsen wij ons continu in de ontwikkelaar en wat het project écht
+                    nodig heeft.</p>
+                <div class="card-number">01</div>
+            </div>
+            <div class="card card-grey">
+                <h3>Momentum</h3>
+                <p>Wij centraliseren ontwerp, inkoop en levering binnen één gestructureerd proces. Leveringen worden per
+                    bouwnummer verwerkt en afgestemd op de bouwplanning. Met één aanspreekpunt, vaste processen en korte
+                    lijntjes zorgen we dat vastgoedprojecten blijven bewegen.</p>
+                <div class="card-number">02</div>
+            </div>
+            <div class="card card-orange">
+                <h3>Maximale zekerheid</h3>
+                <p>Dankzij langdurige samenwerkingen met onze projectpartners en leveranciers en een sterke
+                    inkooporganisatie, waarborgen wij leverzekerheid binnen elk project. Dit zorgt ervoor dat risico's
+                    worden beperkt en de planning niet onder druk komt te staan.</p>
+                <div class="card-number">03</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Section 3: Voor projectorganisaties -->
+    <section class="section-light split-section">
+        <div class="split-left">
+            <h2>VOOR<br>PROJECT-<br>ORGANISATIES<br>IN VASTGOED &<br>BOUW</h2>
+            <p>Modus Projects werkt voor vastgoedontwikkelaars, hoofdaannemers en bouwbedrijven die grip willen houden
+                op de inbouw van grootschalige projecten. Van nieuwbouw tot transformatie: wij sluiten aan waar
+                overzicht en afstemming cruciaal zijn.</p>
+        </div>
+        <div class="split-right">
+            <img src="assets/home page/interior floor.jpeg" alt="Interior Floor">
+        </div>
+    </section>
+
+    <!-- New Section 4: Projects Carousel -->
+    <section class="section-dark projects-carousel-section">
+        <div class="carousel-header">
+            <h2>PROJECTEN WAAR<br>WIJ TROTS OP ZIJN.</h2>
+            <p>Bekijk een greep uit de vastgoedproject waar wij unieke en<br>passende afbouw mogen leveren.</p>
+        </div>
+
+        <div class="carousel-wrapper">
+            <div class="carousel-track" id="carousel-track">
+                <!-- Slide 1 -->
+                <div class="carousel-slide active">
+                    <img src="assets/home page/69c6966f2dafbf9dd9efcd56_Modus Projects Image 07.avif" alt="Nautawerf">
+                    <div class="slide-info">
+                        <h3>NAUTAWERF</h3>
+                        <p>Leidschendam</p>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-slide">
+                    <img src="assets/home page/69c69c20f91d5cdfa11afbac_Modus Projects Image 10.avif" alt="Podium 0950">
+                    <div class="slide-info">
+                        <h3>PODIUM 0950</h3>
+                        <p>Rotterdam</p>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="carousel-slide">
+                    <img src="assets/home page/69c6966f6079c5f5265d1f7a_Modus Projects Image 04.avif"
+                        alt="Silo Amerika">
+                    <div class="slide-info">
+                        <h3>SILO AMERIKA</h3>
+                        <p>Rotterdam</p>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="carousel-slide">
+                    <img src="assets/home page/69c6966f34c63231710098dc_Modus Projects Image 03.avif" alt="Project 4">
+                    <div class="slide-info">
+                        <h3>DE WATERTOREN</h3>
+                        <p>Utrecht</p>
+                    </div>
+                </div>
+                <!-- Slide 5 -->
+                <div class="carousel-slide">
+                    <img src="assets/home page/69c69c173165c9cc3816e429_Modus Projects Image 02.avif" alt="Project 5">
+                    <div class="slide-info">
+                        <h3>HAAGSE HOF</h3>
+                        <p>Den Haag</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-controls">
+            <button class="carousel-btn" id="carousel-prev">&#8592;</button>
+            <button class="carousel-btn" id="carousel-next">&#8594;</button>
+        </div>
+    </section>
+
+    <!-- New Section 5: Betrouwbare Partner -->
+    <section class="section-light partner-section">
+        <div class="partner-left">
+            <img src="assets/home page/69a548db27ef20e6e3f5f2f4_AtlasConcorde_MarvelT_006_01_NavonaWhite_NavonaWhiteLine_LogIconOak.avif"
+                alt="Bathroom interior">
+        </div>
+        <div class="partner-right">
+            <h2>EEN BETROUWBARE<br>PROJECTPARTNER</h2>
+            <p>Modus Projects is gespecialiseerd in de afbouw van grootschalige vastgoedprojecten. We werken
+                projectmatig, met oog voor detail en heldere afspraken. Onze kracht zit in:</p>
+            <ul class="partner-checklist">
+                <li><span class="check-icon">&#10003;</span> Duidelijke afstemming</li>
+                <li><span class="check-icon">&#10003;</span> Constant overzicht</li>
+                <li><span class="check-icon">&#10003;</span> Zekerheid in uitvoering</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- New Section 6: CTA and Floating Images -->
+    <section class="section-light cta-section">
+        <!-- Floating Images -->
+        <img src="assets/home page/69c6966f2dafbf9dd9efcd56_Modus Projects Image 07.avif"
+            class="floating-img float-left-1" alt="Bathroom detail 1">
+        <img src="assets/home page/69c6966fdb8a281d401d95f3_Modus Projects Image 06.avif"
+            class="floating-img float-left-2" alt="Bathroom detail 2">
+        <img src="assets/home page/69c69c173165c9cc3816e429_Modus Projects Image 02.avif"
+            class="floating-img float-right-1" alt="Bathroom detail 3">
+
+        <div class="cta-content">
+            <h2>ANDERS DENKEN,<br>SLIMMER REALISEREN.</h2>
+            <a href="#" class="btn-primary cta-btn">Bespreek jouw project</a>
+            <div class="cta-avatars">
+                <div class="avatar-group">
+                    <img src="assets/home page/69c6966fe7c5b30801c1aff9_Modus Projects Image 09.avif" alt="Avatar 1">
+                    <img src="assets/home page/69c69c20f91d5cdfa11afbac_Modus Projects Image 10.avif" alt="Avatar 2">
+                </div>
+                <span>We gaan graag in gesprek</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-col footer-col-large">
+                <h3>Sanitair, tegels, keukens en vloeren voor<br>transformatie, renovatie en<br>nieuwbouwprojecten.</h3>
+                <p>Geef je project meer uitstraling, zonder dat het ten koste gaat van planning of budget.</p>
+                <a href="#" class="btn-primary">Bespreek jouw project</a>
+            </div>
+            <div class="footer-col">
+                <h4>Menu</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Over ons</a></li>
+                    <li><a href="#">Diensten</a></li>
+                    <li><a href="#">Projecten</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:info@modusprojects.nl">info@modusprojects.nl</a></li>
+                    <li><a href="tel:0702211691">070-2211691</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li>KVK: 99523779</li>
+                    <li>BTW: NL869026203B01</li>
+                    <li class="address">Overgoo 13<br>2266JZ<br>Leidschendam Voorburg</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <h1 class="massive-text">MODUS</h1>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="scroll.js"></script>
+</body>
+
+</html>

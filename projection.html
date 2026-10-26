@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projecten - Modus Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hero-section {
+            background-color: #35363a;
+            color: #ffffff;
+            text-align: center;
+            padding: 140px 20px 80px;
+            min-height: 80vh;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Projecten Grid Styling */
+        .projects-section {
+            padding: 60px 20px;
+            background-color: #ffffff;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 480px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.6) 100%);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            color: #ffffff;
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .project-location {
+            font-size: 1rem;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        /* Partner Section Styling */
+        .partner-section {
+            padding: 100px 20px;
+            background-color: #ffffff;
+        }
+
+        .partner-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .partner-image img {
+            width: 100%;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .partner-content h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+
+        .partner-content p {
+            font-size: 1.05rem;
+            color: #555555;
+            margin-bottom: 30px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid #e5e5e5;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #222222;
+        }
+
+        .feature-item:first-child {
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .feature-icon {
+            margin-right: 15px;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+        }
+
+        /* CTA Section with Floating Images Styling */
+        .cta-section {
+            position: relative;
+            padding: 120px 20px;
+            background-color: #ffffff;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .btn-orange {
+            display: inline-block;
+            background-color: #f48b53;
+            color: #ffffff;
+            padding: 16px 36px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-orange:hover {
+            background-color: #e07a42;
+        }
+
+        .cta-profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .profile-avatars {
+            display: flex;
+        }
+
+        .profile-avatars img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid #ffffff;
+            margin-left: -10px;
+            object-fit: cover;
+        }
+
+        .profile-avatars img:first-child {
+            margin-left: 0;
+        }
+
+        .profile-text {
+            font-size: 0.95rem;
+            color: #555555;
+            font-weight: 500;
+        }
+
+        .float-img {
+            position: absolute;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+        }
+
+        .float-img-1 {
+            top: 10%;
+            left: 4%;
+            width: 180px;
+            height: 180px;
+        }
+
+        .float-img-2 {
+            bottom: 15%;
+            left: 12%;
+            width: 120px;
+            height: 120px;
+        }
+
+        .float-img-3 {
+            top: 15%;
+            right: 5%;
+            width: 220px;
+            height: 220px;
+        }
+
+        /* Original Dropdown Styles matching screenshot */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 86vh;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 10%;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            text-align: left;
+        }
+
+        .menu-links a {
+            color: #ffffff;
+            font-size: 2.5rem;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .menu-links a:hover,
+        .menu-links a.active {
+            color: #ffffff;
+            text-decoration: underline;
+            text-underline-offset: 8px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .partner-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title,
+            .partner-content h2,
+            .cta-title {
+                font-size: 2.2rem;
+            }
+
+            .float-img {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar" id="navbar" style="z-index: 1001; position: relative;">
+        <div class="nav-left">
+            <a href="over-ons.html">Over ons</a>
+            <a href="projection.html">Projecten</a>
+        </div>
+        <div class="nav-center">
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <div class="logo">
+                    <span class="logo-icon">|||</span>MODUS
+                </div>
+            </a>
+        </div>
+        <div class="nav-right">
+            <a href="#contact" class="btn-primary">Bespreek jouw project</a>
+            <button class="menu-btn" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menu-overlay">
+        <div class="menu-links">
+            <a href="index.html">Home</a>
+            <a href="projection.html">Projecten</a>
+            <a href="over-ons.html">Over ons</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+
+    <main>
+        <!-- 1. Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">Projecten Waar<br>Wij Trots Op Zijn.</h1>
+                <p class="hero-subtitle">
+                    Bekijk een greep uit de vastgoedprojecten waar wij unieke en passende afbouw mogen leveren.
+                </p>
+            </div>
+        </section>
+
+        <!-- 2. Projects Grid Section -->
+        <section class="projects-section">
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <img src="assets/projection/1.jpg" alt="Amstelwood Amstelveen">
+                    <div class="project-overlay">
+                        <h2 class="project-title">Amstelwood</h2>
+                        <p class="project-location">Amstelveen</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="assets/projection/2.jpg" alt="Based In Hoogvliet Rotterdam">
+                    <div class="project-overlay">
+                        <h2 class="project-title">Based In</h2>
+                        <p class="project-location">Hoogvliet Rotterdam</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="assets/projection/3.jpg" alt="Glasgebouw Eindhoven">
+                    <div class="project-overlay">
+                        <h2 class="project-title">Glasgebouw</h2>
+                        <p class="project-location">Eindhoven</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="assets/projection/4.jpg" alt="Johann Siegerstraat Amsterdam">
+                    <div class="project-overlay">
+                        <h2 class="project-title">Johann Siegerstraat 16-18</h2>
+                        <p class="project-location">Amsterdam</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="assets/projection/5.png" alt="Nautawerf Leidschendam">
+                    <div class="project-overlay">
+                        <h2 class="project-title">Nautawerf</h2>
+                        <p class="project-location">Leidschendam</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="assets/projection/6.png" alt="Podium 0950 Rotterdam">
+                    <div class="project-overlay">
+                        <h2 class="project-title">Podium 0950</h2>
+                        <p class="project-location">Rotterdam</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. Partner / Trust Section -->
+        <section class="partner-section">
+            <div class="partner-container">
+                <div class="partner-image">
+                    <img src="assets/projection/7.avif" alt="Luxe Badkamer Afbouw">
+                </div>
+                <div class="partner-content">
+                    <h2>Een Betrouwbare Projectpartner</h2>
+                    <p>
+                        Modus Projects is gespecialiseerd in de afbouw van grootschalige vastgoedprojecten.
+                        We werken projectmatig, met oog voor detail en heldere afspraak. Onze kracht zit in:
+                    </p>
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <span class="feature-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </span>
+                            Duidelijke afstemming
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </span>
+                            Constant overzicht
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </span>
+                            Zekerheid in uitvoering
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. CTA / Floating Gallery Section -->
+        <section class="cta-section" id="contact">
+            <img src="assets/projection/01.avif" alt="Detail 1" class="float-img float-img-1">
+            <img src="assets/projection/02.avif" alt="Detail 2" class="float-img float-img-2">
+            <img src="assets/projection/01.avif" alt="Detail 3" class="float-img float-img-3">
+
+            <div class="cta-content">
+                <h2 class="cta-title">Anders Denken,<br>Slimmer Realiseren.</h2>
+                <a href="mailto:info@modusprojects.nl" class="btn-orange">Bespreek jouw project</a>
+
+                <div class="cta-profile">
+                    <div class="profile-avatars">
+                        <img src="assets/projection/03.avif" alt="Team Member">
+                        <img src="assets/projection/03.avif" alt="Team Member">
+                    </div>
+                    <span class="profile-text">We gaan graag in gesprek</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-col footer-col-large">
+                <h3>Sanitair, tegels, keukens en vloeren voor<br>transformatie, renovatie en<br>nieuwbouwprojecten.</h3>
+                <p>Geef je project meer uitstraling, zonder dat het ten koste gaat van planning of budget.</p>
+                <a href="#contact" class="btn-primary">Bespreek jouw project</a>
+            </div>
+            <div class="footer-col">
+                <h4>Menu</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="over-ons.html">Over ons</a></li>
+                    <li><a href="projection.html">Projecten</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:info@modusprojects.nl">info@modusprojects.nl</a></li>
+                    <li><a href="tel:0702211691">070-2211691</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li>KVK: 99523779</li>
+                    <li>BTW: NL869026203B01</li>
+                    <li class="address">Overgoo 13<br>2266JZ<br>Leidschendam Voorburg</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <h1 class="massive-text">MODUS</h1>
+        </div>
+    </footer>
+
+    <!-- Script to toggle overlay and button state -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const menuOverlay = document.getElementById('menu-overlay');
+
+            if (menuToggle && menuOverlay) {
+                menuToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    menuToggle.classList.toggle('active');
+                    menuOverlay.classList.toggle('active');
+                });
+
+                const links = menuOverlay.querySelectorAll('a');
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuToggle.classList.remove('active');
+                        menuOverlay.classList.remove('active');
+                    });
+                });
+            }
+        });
+    </script>
+<script src="scroll.js"></script>
+</body>
+
+</html>

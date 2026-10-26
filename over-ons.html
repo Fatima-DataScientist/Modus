@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Over ons - MODUS</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body class="over-ons-page">
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-left">
+            <a href="over-ons.html">Over ons</a>
+            <a href="projection.html">Projecten</a>
+        </div>
+        <div class="nav-center">
+            <div class="logo">
+                <span class="logo-icon">|||</span>MODUS
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="#" class="btn-primary">Bespreek jouw project</a>
+            <button class="menu-btn" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menu-overlay">
+        <div class="menu-links">
+            <a href="index.html">Home</a>
+            <a href="projection.html">Projecten</a>
+            <a href="over-ons.html">Over ons</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+    </div>
+
+
+    <!-- Over Ons Hero Content -->
+    <section class="over-ons-hero">
+        <div class="over-ons-hero-text">
+            <h1>OMDAT HET<br>BETER KAN.</h1>
+            <p>Onze drijfveer? Meer karakter en kwaliteit voor de afbouw van<br>vastgoedprojecten zonder in te leveren
+                op budget.</p>
+        </div>
+    </section>
+
+    <!-- Over Ons Sequence Section -->
+    <section class="over-ons-sequence">
+        <div class="over-ons-spacer" id="over-ons-spacer"></div>
+        <div class="over-ons-canvas-wrapper" id="over-ons-wrapper">
+            <canvas id="over-ons-canvas"></canvas>
+        </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section class="section-light standards-section">
+        <h2 class="centered-title">DRIE M'S.<br>ÉÉN STANDAARD.</h2>
+        <div class="cards-container">
+            <div class="card card-dark">
+                <h3>Meerwaarde</h3>
+                <p>Wij doorbreken de standaard in projectafbouw met doordachte afbouwconcepten. We ontwerpen oplossingen
+                    die aansluiten op jouw project, creatief samengesteld, maar altijd binnen budget. Dankzij directe
+                    producentenrelaties en projectmatige volume-inkoop realiseren we deze kwaliteit tegen scherpe en
+                    transparante prijzen. Daarbij verplaatsen wij ons continu in de ontwikkelaar en wat het project écht
+                    nodig heeft.</p>
+                <div class="card-number">01</div>
+            </div>
+            <div class="card card-grey">
+                <h3>Momentum</h3>
+                <p>Wij centraliseren ontwerp, inkoop en levering binnen één gestructureerd proces. Leveringen worden per
+                    bouwnummer verwerkt en afgestemd op de bouwplanning. Met één aanspreekpunt, vaste processen en korte
+                    lijntjes zorgen we dat vastgoedprojecten blijven bewegen.</p>
+                <div class="card-number">02</div>
+            </div>
+            <div class="card card-orange">
+                <h3>Maximale zekerheid</h3>
+                <p>Dankzij langdurige samenwerkingen met onze projectpartners en leveranciers en een sterke
+                    inkooporganisatie, waarborgen wij leverzekerheid binnen elk project. Dit zorgt ervoor dat risico's
+                    worden beperkt en de planning niet onder druk komt te staan.</p>
+                <div class="card-number">03</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Scroller Section -->
+    <section class="section-light brands-section">
+        <h3 class="brands-title">Wij werken uitsluitend met A-merken</h3>
+
+        <div class="brands-scroller" id="brands-scroller">
+            <div class="brands-track">
+                <!-- First set of images -->
+                <div class="brand-item"><img src="assets/over-ons/1.avif" alt="Brand 1"></div>
+                <div class="brand-item"><img src="assets/over-ons/2.avif" alt="Brand 2"></div>
+                <div class="brand-item"><img src="assets/over-ons/3.avif" alt="Brand 3"></div>
+                <div class="brand-item"><img src="assets/over-ons/4.avif" alt="Brand 4"></div>
+                <div class="brand-item"><img src="assets/over-ons/5.avif" alt="Brand 5"></div>
+                <div class="brand-item"><img src="assets/over-ons/6.avif" alt="Brand 6"></div>
+                <div class="brand-item"><img src="assets/over-ons/7.png" alt="Brand 7"></div>
+
+                <!-- Duplicate set for seamless continuous scrolling -->
+                <div class="brand-item"><img src="assets/over-ons/1.avif" alt="Brand 1"></div>
+                <div class="brand-item"><img src="assets/over-ons/2.avif" alt="Brand 2"></div>
+                <div class="brand-item"><img src="assets/over-ons/3.avif" alt="Brand 3"></div>
+                <div class="brand-item"><img src="assets/over-ons/4.avif" alt="Brand 4"></div>
+                <div class="brand-item"><img src="assets/over-ons/5.avif" alt="Brand 5"></div>
+                <div class="brand-item"><img src="assets/over-ons/6.avif" alt="Brand 6"></div>
+                <div class="brand-item"><img src="assets/over-ons/7.png" alt="Brand 7"></div>
+            </div>
+        </div>
+
+        <div class="timeline-ruler">
+            <div class="ruler-line"></div>
+            <div class="ruler-ticks">
+                <span class="tick tick-grey"></span>
+                <span class="tick tick-orange"></span>
+                <span class="tick tick-grey"></span>
+                <span class="tick tick-grey"></span>
+                <span class="tick tick-grey"></span>
+                <span class="tick tick-orange"></span>
+                <span class="tick tick-grey"></span>
+                <span class="tick tick-grey"></span>
+                <span class="tick tick-orange"></span>
+                <span class="tick tick-grey"></span>
+                <span class="tick tick-grey"></span>
+                <span class="tick tick-orange"></span>
+                <span class="tick tick-grey"></span>
+                <span class="tick tick-grey"></span>
+                <span class="tick tick-orange"></span>
+                <span class="tick tick-grey"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section 1 -->
+    <section class="team-section">
+        <div class="team-left">
+            <h2 class="team-headline">ANDERS DENKEN,<br>SLIMMER REALISEREN</h2>
+        </div>
+        <div class="team-right">
+            <p class="team-intro">Een compact team, met directe lijnen en snelle schakeling. Zo blijven we betrokken bij
+                elk vastgoedproject.</p>
+            <div class="team-card">
+                <div class="team-image-wrapper">
+                    <img src="assets/over-ons/6a563ce64574708237c95299_Robert-Jan Smid.jpg" alt="Robert-Jan Smid">
+                </div>
+                <h3>ROBERT-JAN SMID</h3>
+                <p>Oprichter en drijvende kracht achter Modus Projects. Met jarenlange ervaring in projectontwikkeling
+                    en afbouw weet hij precies wat nodig is om complexe projecten tot een succes te maken.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section 2 -->
+    <section class="team-section team-section-stripes">
+        <div class="team-left team-stripes">
+            <!-- CSS will handle the stripes -->
+            <div class="stripe stripe-orange"></div>
+            <div class="stripe stripe-dark"></div>
+            <div class="stripe stripe-orange"></div>
+            <div class="stripe stripe-dark"></div>
+            <div class="stripe stripe-orange"></div>
+            <div class="stripe stripe-dark"></div>
+        </div>
+        <div class="team-right">
+            <div class="team-card">
+                <div class="team-image-wrapper">
+                    <img src="assets/over-ons/6a563cd636e6654677a08ab9_Chris van Eck.jpeg" alt="Chris van Eck">
+                </div>
+                <h3>CHRIS VAN ECK</h3>
+                <p>Chris denkt vooruit en handelt in oplossingen, juist wanneer het complex wordt. Hij haalt energie uit
+                    het opbouwen van sterke relaties en duurzame samenwerkingen. Met een positieve werkhouding, oog voor
+                    kwaliteit en het nakomen van afspraken kun je op hem rekenen, en draagt hij bij aan het succesvol
+                    realiseren van projecten.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modus Operandi Title -->
+    <section class="modus-title-section">
+        <h2 class="massive-title">ONZE MODUS<br>OPERANDI</h2>
+    </section>
+
+    <!-- Modus Operandi Interactive -->
+    <section class="operandi-section">
+        <div class="operandi-left">
+            <!-- Default image -->
+            <img src="assets/over-ons/69e20626c14e815e60b00658_6b39d5ebebf0d9e9e18d95b3aa0a986d_Kennismaking.jpeg"
+                id="operandi-image" alt="Modus Operandi Step">
+        </div>
+        <div class="operandi-right">
+            <div class="operandi-tabs">
+                <!-- Tab 1 -->
+                <div class="operandi-tab active" data-step="1"
+                    data-img="assets/over-ons/69e20626c14e815e60b00658_6b39d5ebebf0d9e9e18d95b3aa0a986d_Kennismaking.jpeg">
+                    <div class="tab-header">
+                        <span class="tab-indicator"></span>
+                        <h3>KENNISMAKING</h3>
+                    </div>
+                    <div class="tab-content">
+                        <p>Tijdens onze eerste ontmoeting brengen we jouw wensen en eisen in kaart. We bespreken de
+                            haalbaarheid, het budget en de planning om een solide basis te leggen voor een succesvolle
+                            samenwerking.</p>
+                    </div>
+                </div>
+                <!-- Tab 2 -->
+                <div class="operandi-tab" data-step="2"
+                    data-img="assets/over-ons/69e20627ac221e42f02f33a3_62fa71608afff8087070d58dd6f5d15b_Ontwerp.jpeg">
+                    <div class="tab-header">
+                        <span class="tab-indicator"></span>
+                        <h3>ONTWERP</h3>
+                    </div>
+                    <div class="tab-content">
+                        <p>Op basis van de uitgangspunten gaan we samen aan de slag. We selecteren de juiste
+                            leveranciers en werken gezamenlijk het ontwerp en de materialisatie uit. Indien gewenst
+                            vertalen we dit naar renders, brochures, impressielijsten en bijbehorende offertes.</p>
+                    </div>
+                </div>
+                <!-- Tab 3 -->
+                <div class="operandi-tab" data-step="3"
+                    data-img="assets/over-ons/69e2062632aa34cb0bbf84d8_5757df8f8ffde8c55b14a5965acc3a20_Planning.jpeg">
+                    <div class="tab-header">
+                        <span class="tab-indicator"></span>
+                        <h3>PLANNING</h3>
+                    </div>
+                    <div class="tab-content">
+                        <p>Met een goedgekeurd ontwerp stellen we een strakke en realistische planning op. We stemmen de
+                            levertijden van onze partners af op de voortgang van jouw bouwproject, zodat alles naadloos
+                            aansluit.</p>
+                    </div>
+                </div>
+                <!-- Tab 4 -->
+                <div class="operandi-tab" data-step="4"
+                    data-img="assets/over-ons/69e20627b70e8eec3ae55b9c_70dc96c96ed2f7044c869f52b68fdda6_Levering.jpeg">
+                    <div class="tab-header">
+                        <span class="tab-indicator"></span>
+                        <h3>LEVERING</h3>
+                    </div>
+                    <div class="tab-content">
+                        <p>Wij coördineren de volledige levering tot op de bouwplaats. Door slimme logistiek en
+                            duidelijke communicatie zorgen we dat alle materialen op het juiste moment, in de juiste
+                            volgorde en zonder gedoe worden afgeleverd.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-col footer-col-large">
+                <h3>Sanitair, tegels, keukens en vloeren voor<br>transformatie, renovatie en<br>nieuwbouwprojecten.</h3>
+                <p>Geef je project meer uitstraling, zonder dat het ten koste gaat van planning of budget.</p>
+                <a href="#" class="btn-primary">Bespreek jouw project</a>
+            </div>
+            <div class="footer-col">
+                <h4>Menu</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="over-ons.html">Over ons</a></li>
+                    <li><a href="#">Diensten</a></li>
+                    <li><a href="#">Projecten</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:info@modusprojects.nl">info@modusprojects.nl</a></li>
+                    <li><a href="tel:0702211691">070-2211691</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li>KVK: 99523779</li>
+                    <li>BTW: NL869026203B01</li>
+                    <li class="address">Overgoo 13<br>2266JZ<br>Leidschendam Voorburg</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <h1 class="massive-text">MODUS</h1>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="scroll.js"></script>
+</body>
+
+</html>
